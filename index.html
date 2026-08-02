@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Aviari Waitlist · All 9 exams in 12 weeks</title>
-<meta name="description" content="Join the Aviari waitlist. Pass all nine UK CAA PPL theory exams in twelve weeks, under an hour a day. Founder pricing locked at signup."/>
+<meta name="description" content="Join the Aviari waitlist. Pass all nine UK CAA PPL theory exams in twelve weeks with a structured plan. Founder pricing locked at signup."/>
 <meta name="robots" content="noindex"/><!-- remove this line when you want the page discoverable -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -20,15 +20,13 @@
     color: var(--ink);
   }
   .hero-w::before {
-    content:''; position: absolute; right: -240px; top: -240px;
-    width: 720px; height: 720px; border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(232,138,74,0.12), transparent 60%);
+    content:''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 55% 65% at 100% -5%, rgba(232,138,74,0.14), transparent 100%);
     pointer-events: none;
   }
   .hero-w::after {
-    content:''; position: absolute; left: -200px; bottom: -280px;
-    width: 640px; height: 640px; border-radius: 50%;
-    background: radial-gradient(circle at 60% 40%, rgba(197,211,224,0.35), transparent 65%);
+    content:''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 60% at -5% 105%, rgba(197,211,224,0.4), transparent 100%);
     pointer-events: none;
   }
   .hero-w .wrap {
@@ -68,11 +66,13 @@
     animation: blink 1.4s infinite; display: inline-block;
   }
 
-  /* right · copy + form */
+  /* right · copy + form · pill matches the video's "Watch" tag */
   .hero-copy .crumb {
-    color: var(--flare);
-    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    display: inline-flex; gap: 10px; align-items: center;
+    color: white; background: var(--deep);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 14px; border-radius: 999px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    display: inline-flex; gap: 9px; align-items: center;
   }
   .hero-copy .crumb i {
     width: 6px; height: 6px; border-radius: 50%; background: var(--flare);
@@ -132,6 +132,11 @@
   .hero-copy .count-line b {
     font-family: var(--f-display); font-size: 20px; letter-spacing: -0.01em;
     color: var(--flare-deep); font-weight: 600; margin-right: 8px;
+  }
+
+  .h2-oneline { white-space: nowrap; font-size: clamp(32px, 4.6vw, 64px); }
+  @media (max-width: 700px) {
+    .h2-oneline { white-space: normal; font-size: clamp(34px, 9vw, 44px); }
   }
 
   /* ---------------- Clock strip ---------------- */
@@ -294,12 +299,12 @@
   }
 
   /* ---------------- Old way vs the plan ---------------- */
-  .ways { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: stretch; }
+  .ways { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: stretch; }
   .way { display: flex; flex-direction: column; }
   /* pill row: caption above pill, both centred, fixed structure so columns align */
   .way .pillrow {
-    display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 12px;
-    height: 88px; margin-bottom: 34px; text-align: center;
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 10px;
+    height: 68px; margin-bottom: 24px; text-align: center;
   }
   .way .pillcap {
     font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
@@ -307,37 +312,41 @@
   }
   .way .pill {
     display: inline-flex; align-items: center;
-    height: 52px; padding: 0 28px; border-radius: 12px;
-    font-family: var(--f-display); font-size: 20px; font-weight: 600; letter-spacing: -0.015em;
+    height: 46px; padding: 0 24px; border-radius: 11px;
+    font-family: var(--f-display); font-size: 19px; font-weight: 600; letter-spacing: -0.015em;
     color: white; white-space: nowrap;
   }
   .way.old .pill { background: var(--dusty); }
   .way.new .pill { background: var(--flare); }
   .way .bubbles {
-    position: relative; display: flex; flex-direction: column; gap: 18px;
+    position: relative; display: flex; flex-direction: column; gap: 17px;
     flex: 1;
   }
+  /* the timeline spine that strings the Aviari messages together */
   .way.new .bubbles::before {
-    content:''; position: absolute; left: 50%; top: -18px; bottom: -18px; width: 2px;
+    content:''; position: absolute; left: 50%; top: -17px; bottom: -17px; width: 2px;
     background: var(--line); transform: translateX(-50%);
   }
+  /* text-message bubbles: width follows the text, like a chat thread */
   .bubble {
-    background: white; border: 1px solid var(--line); border-radius: 14px;
-    min-height: 58px; padding: 14px 22px; box-shadow: var(--e1);
+    background: white; border: 1px solid var(--line); border-radius: 13px;
+    min-height: 54px; padding: 13px 22px; box-shadow: var(--e1);
     font-family: var(--f-display); font-size: 16px; font-weight: 500;
-    letter-spacing: -0.01em; line-height: 1.35; color: var(--deep);
-    width: fit-content; max-width: 78%; position: relative;
-    display: flex; align-items: center; gap: 14px;
+    letter-spacing: -0.01em; line-height: 1.4; color: var(--deep);
+    width: fit-content; max-width: 84%; position: relative;
+    display: flex; align-items: center; gap: 13px;
   }
-  /* old column: deliberate scatter, like a mess of half-finished starts */
+  /* old column: scattered, like a mess of half-finished starts */
   .way.old .bubble:nth-child(1) { align-self: center; }
   .way.old .bubble:nth-child(2) { align-self: flex-start; margin-left: 4%; }
   .way.old .bubble:nth-child(3) { align-self: flex-end; margin-right: 6%; }
-  .way.old .bubble:nth-child(4) { align-self: flex-start; margin-left: 12%; }
+  .way.old .bubble:nth-child(4) { align-self: flex-start; margin-left: 10%; }
   .way.old .bubble:nth-child(5) { align-self: flex-end; }
-  .way.old .bubble:nth-child(6) { align-self: flex-start; margin-left: 8%; }
-  /* new column: orderly, centred on the spine */
+  .way.old .bubble:nth-child(6) { align-self: flex-start; margin-left: 7%; }
+  /* new column: strung on the spine, drifting like a chat thread */
   .way.new .bubble { align-self: center; z-index: 1; }
+  .way.new .bubble:nth-child(odd) { transform: translateX(-5%); }
+  .way.new .bubble:nth-child(even) { transform: translateX(5%); }
   .bubble .tag {
     position: absolute; top: -15px; right: -14px;
     background: var(--ink); color: white;
@@ -345,12 +354,12 @@
     padding: 6px 12px; border-radius: 999px; white-space: nowrap; font-weight: 400;
     box-shadow: var(--e2);
   }
-  .bubble .tag.g { background: var(--flare-deep); }
+  .bubble .tag.g { background: var(--flare); }
+  img.ava { width: 56px; height: 56px; margin: -12px 0; object-fit: cover; border: 1.5px solid white; box-shadow: var(--e2); border-radius: 50%; flex-shrink: 0; }
   .way .cap {
-    margin-top: 34px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em;
+    margin-top: 22px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--dusty); text-align: center;
   }
-
   /* ---------------- The 12-week sitting calendar (PLOG) ---------------- */
   .plog-cap {
     margin: 0 0 22px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em;
@@ -473,7 +482,7 @@
   .cta-wl .wrap { position: relative; z-index: 1; }
   .cta-wl .sec-num { color: var(--mist); justify-content: center; }
   .cta-wl .sec-num::before { background: var(--mist); }
-  .cta-wl h2 { color: white; font-size: clamp(48px, 7vw, 96px); letter-spacing: -0.04em; line-height: 0.94; margin: 18px 0 0; }
+  .cta-wl h2 { color: white; font-size: clamp(38px, 4.6vw, 64px); letter-spacing: -0.035em; line-height: 0.98; margin: 18px 0 0; }
   .cta-wl h2 .accent { color: var(--flare); }
   .cta-wl p { max-width: 520px; margin: 24px auto 0; color: var(--mist); font-size: 17px; line-height: 1.55; }
   .cta-wl .wl-form { margin: 40px auto 0; max-width: 620px; justify-content: center; }
@@ -559,7 +568,7 @@
           Join the waitlist
           <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
         </button>
-        <span class="ok">✓ You're on the list. Check your inbox: your 18-month clock planner is on its way.</span>
+        <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
       </form>
 
       <p class="filter-line"><b>Warning:</b> don't join unless you're ready to start studying for your PPL exams. This waitlist and discounted price is for pilots who want to get started soon.</p>
@@ -574,10 +583,10 @@
 <section class="clock">
   <div class="wrap">
     <div class="row">
-      <p class="msg">The moment you sit your first exam, the CAA starts a clock: <b>all nine passed within 18 months</b>, within six sittings, four attempts each, or you start again. Every week without a plan, it's running.</p>
+      <p class="msg">Sit your first exam and the CAA/EASA clock starts: <b>all nine passed within 18 months</b>, four attempts per exam, or you start again. Every week without a plan, it's running.</p>
       <div class="rule">
-        <span>Time limit<b>18 months</b></span>
-        <span>Max sittings<b>6</b></span>
+        <span>Timeline<b>18 months</b></span>
+        <span>Exams<b>9</b></span>
         <span>Attempts / exam<b>4</b></span>
       </div>
     </div>
@@ -590,35 +599,35 @@
     <div class="s-head" style="grid-template-columns: 1fr; align-items: start;">
       <div>
         <div class="sec-num">Sounds familiar?</div>
-        <h2>We know what's in your way.</h2>
+        <h2><b style="font-weight: 700;">I know</b> <span style="font-weight: 400; font-style: italic;">exactly what's holding you back.</span></h2>
         <p class="lead" style="margin-top: 20px;">Nobody fails PPL theory because they're not smart enough. They stall for the same six reasons, every time.</p>
       </div>
     </div>
 
     <div class="fears">
-      <div class="fear">I don't know which exam to sit first, or what order to take them in.</div>
-      <div class="fear">I'm doing this around a full-time job. I don't have hours a day.</div>
+      <div class="fear">I'm doing this around a full-time job. I don't have a lot of time.</div>
       <div class="fear">I passed Air Law months ago and I've completely stalled since.</div>
       <div class="fear">Which exams should I batch together so the revision overlaps?</div>
-      <div class="fear">I don't know whether to self-study or pay hundreds for ground school.</div>
-      <div class="fear">Everyone at the club seems further ahead than me.</div>
+      <div class="fear">I don't know which exam to sit first, or what order to take them in.</div>
+      <div class="fear">I don't know whether to self-study or pay thousands for ground school.</div>
+      <div class="fear">Everyone at the flying club seems further ahead than me.</div>
     </div>
 
     <div class="truth">
       <span class="tag">The truth</span>
-      <p>You don't need more willpower, more free time, or a maths brain. You need a system that tells you <b>what to study today, in what order</b>, and proves you're ready <b>before</b> you book the exam. That's it. Twelve weeks, under an hour a day, alongside pilots on exactly the same plan.</p>
+      <p>You don't need more willpower, more free time, or a maths brain. You need a system that tells you <b>what to study today, in what order</b>, and proves you're ready <b>before</b> you book the exam. That's it.</p>
     </div>
   </div>
 </section>
 
 <!-- Old way vs the plan -->
-<section class="s" style="background: var(--haze);">
+<section class="s" style="background: var(--haze); padding: 64px 0;">
   <div class="wrap">
-    <div class="s-head" style="grid-template-columns: 1fr;">
+    <div class="s-head" style="grid-template-columns: 1fr; margin-bottom: 40px;">
       <div>
         <div class="sec-num">02 · Two ways to do this</div>
         <h2>The old way, or the Aviari way.</h2>
-        <p class="lead" style="margin-top: 20px;">Same nine exams. Two very different six months. Most pilots only find out there was a second way after the first one costs them a retake.</p>
+        <p class="lead" style="margin-top: 18px; max-width: none;">Same nine exams, two very different six months. Most pilots find the second way only after the first costs them a retake.</p>
       </div>
     </div>
 
@@ -626,12 +635,12 @@
       <div class="way old">
         <div class="pillrow"><span class="pillcap">How it usually goes 🫠</span><span class="pill">The old way</span></div>
         <div class="bubbles">
-          <div class="bubble">Buy all six textbook volumes</div>
-          <div class="bubble">Read for months, retain half<span class="tag">Which subject first? 🤯</span></div>
-          <div class="bubble">Grind a question bank, memorise answers</div>
-          <div class="bubble">Book the exam on a feeling<span class="tag">Fail Met 😮‍💨</span></div>
-          <div class="bubble">Retake. The 18-month clock keeps ticking</div>
-          <div class="bubble">Motivation gone by Navigation<span class="tag">I give up 💀</span></div>
+          <div class="bubble">Buy all the physical textbooks</div>
+          <div class="bubble">Read for months, retain none of it<span class="tag">Which subjects first? 🤯</span></div>
+          <div class="bubble">Grind question banks, memorising answers</div>
+          <div class="bubble">Book the exam hoping you'll pass<span class="tag">Fail Met 😮‍💨</span></div>
+          <div class="bubble">Fail. The 18-month clock keeps ticking</div>
+          <div class="bubble">Motivation gone. I want to quit.<span class="tag">I give up 💀</span></div>
         </div>
         <div class="cap">Sound familiar? It's not you. It's the method.</div>
       </div>
@@ -639,14 +648,14 @@
       <div class="way new">
         <div class="pillrow"><span class="pillcap">How it goes from now on ✈️</span><span class="pill">The Aviari way</span></div>
         <div class="bubbles">
-          <div class="bubble">Log in. Your 12-week plan is waiting<span class="tag g">Day one ✅</span></div>
-          <div class="bubble"><span class="ava">Photo<br/>you</span>One session a day, under an hour</div>
-          <div class="bubble">Drills quietly bring back what you missed</div>
-          <div class="bubble">Watch your readiness score climb<span class="tag g">Green means go 🟢</span></div>
-          <div class="bubble"><span class="ava">Photo<br/>pilot</span>Book each exam knowing you'll pass</div>
-          <div class="bubble">All nine passed, first time<span class="tag g">Week 12 🎉</span></div>
+          <div class="bubble">Your 12-week plan is waiting<span class="tag g">Day one ✅</span></div>
+          <div class="bubble"><img class="ava" src="photos/ava-flying-1.jpg" alt="Zahra flying"/>Every day is structured. No thinking about what, or when</div>
+          <div class="bubble">Follow a proven method that works</div>
+          <div class="bubble">Spend your time on your weak points<span class="tag g">The pain list 🎯</span></div>
+          <div class="bubble"><img class="ava" src="photos/ava-flying-2.jpg" alt="Zahra in the cockpit"/>Active recall: understand it, don't memorise it</div>
+          <div class="bubble">Book each exam knowing you'll pass. All nine, first time<span class="tag g">Week 12 🎉</span></div>
         </div>
-        <div class="cap">One plan, one hour a day, done together.</div>
+        <div class="cap">One plan. Every day accounted for.</div>
       </div>
     </div>
   </div>
@@ -658,12 +667,12 @@
     <div class="s-head">
       <div>
         <div class="sec-num">03 · The plan</div>
-        <h2>Nine exams. Four sittings. 12 weeks.</h2>
+        <h2 class="h2-oneline">Nine exams. Four sittings. 12 weeks.</h2>
         <p class="lead" style="margin-top: 20px; max-width: 620px;">You are not studying nine subjects. You are studying four sittings: pair them right and one block of revision covers two or three exams at once.</p>
       </div>
     </div>
 
-    <p class="plog-cap">The PLOG method · Plan, Learn, Organise, Grill · the exact system our founder used to pass all nine while working a 9-5</p>
+    <h3 style="font-size: 26px; letter-spacing: -0.02em; margin: 0 0 20px;">The structure you'll be sitting.</h3>
 
     <div class="cal-grid">
 
@@ -766,81 +775,39 @@
 
     </div>
 
-    <div class="week">
-      <div class="whead">
-        <span>Inside every week</span>
-        <span class="o">One session a day · &lt; 1 hour</span>
-      </div>
-      <div class="days">
-        <div class="day">
-          <span class="d">Mon</span>
-          <span class="sess lesson">Lesson · 10 min</span>
-          <span class="sess drill">Drill · 20 min</span>
-        </div>
-        <div class="day">
-          <span class="d">Tue</span>
-          <span class="sess lesson">Lesson · 10 min</span>
-          <span class="sess drill">Drill · 20 min</span>
-        </div>
-        <div class="day">
-          <span class="d">Wed</span>
-          <span class="sess lesson">Lesson · 10 min</span>
-          <span class="sess drill">Drill · 20 min</span>
-        </div>
-        <div class="day">
-          <span class="d">Thu</span>
-          <span class="sess lesson">Lesson · 10 min</span>
-          <span class="sess drill">Drill · 20 min</span>
-        </div>
-        <div class="day">
-          <span class="d">Fri</span>
-          <span class="sess drill">Weak-area review</span>
-          <span class="sess live">Live briefing</span>
-        </div>
-        <div class="day">
-          <span class="d">Sat</span>
-          <span class="sess mock">Full mock · exam clock</span>
-        </div>
-        <div class="day">
-          <span class="d">Sun</span>
-          <span class="sess rest">Off. Go flying</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- FOUNDER SECTION HIDDEN until the real story is written. To restore: remove this comment wrapper.
-<!~~ Founder note ~~>
-<!~~ EDIT ME: replace the photo, the story, and the signature with your real details.
-     The specifics are what make this section work: real exam names, real scores, real dates. ~~>
+<!-- Founder note -->
+<!-- EDIT ME: replace the photo, the story, and the signature with your real details.
+     The specifics are what make this section work: real exam names, real scores, real dates. -->
 <section class="s">
   <div class="wrap">
     <div class="founder">
       <div class="photo">
-        <img src="photos/shard-ba-flyby.jpg" alt="Founder photo placeholder"/>
+        <img src="photos/founder.jpg" alt="Zahra after passing her skills test, holding the certificate in front of a Cessna"/>
       </div>
       <div class="note">
         <div class="sec-num" style="margin-bottom: 22px;">04 · Why this exists</div>
         <p>I didn't build this because revision software is a good business. I built it because I sat where you're sitting: nine exams, a stack of textbooks written like legal documents, and no idea what to study first.</p>
-        <p class="dim">[Your story here: the stalled months, the exam you nearly didn't book, the system you pieced together that finally worked. Three short paragraphs. Real subjects, real scores, real dates. This section carries the whole page, so don't launch with placeholder text.]</p>
-        <p>The exams aren't the hard part. Revising alone, in the wrong order, with no idea if you're ready. That's the hard part. So I fixed that part.</p>
+        <p>I did my licence alongside a nine to five, struggling to find the time, with nobody around me who had ever done it before. I was completely alone in it. And the truth is, your pilot licence is a lonely journey: it's you, your brain, your exams, your flights, and your timeline.</p>
+        <p>I wasn't a perfect student pilot. The flying itself took me longer than it should have. But I cracked something with the theory: I passed all nine exams in under three months, because I stopped relying on motivation and built a system instead. That system is what I want to share with you, so the theory takes less of your life and the flying gets more of it.</p>
+        <p>If you're doing this as a hobby, around a job, or around a family, you have to get smart about how and when you study. Rely on motivation alone and the 18-month clock will beat you. Most student pilots never make it to the finish line. I want you to be one of the ones who does.</p>
         <div class="sig">
-          <b>[Your name]</b>
-          Founder, Aviari · [PPL holder / student pilot, licence year]
+          <b>Zahra Alubudi</b>
+          Founder, Aviari · Private pilot
         </div>
       </div>
     </div>
   </div>
 </section>
--->
 
 <!-- FAQ -->
 <section class="s" style="background: var(--haze);">
   <div class="wrap">
     <div class="s-head">
       <div>
-        <div class="sec-num">04 · Questions</div>
+        <div class="sec-num">05 · Questions</div>
         <h2>Asked, answered.</h2>
       </div>
     </div>
@@ -848,23 +815,23 @@
     <div class="faq-list">
       <details>
         <summary>What actually happens after I join the waitlist?<span class="x">+</span></summary>
-        <div class="a">You lock your spot and your founder price. Between now and launch we'll send you genuinely useful revision material, starting with the 18-month clock planner. Then you get first access when doors open.</div>
+        <div class="a">You lock your spot. Between now and launch, I'll send you useful revision materials. Then you get first access when doors open.</div>
       </details>
       <details>
         <summary>Do I still need a flight school or ground school?<span class="x">+</span></summary>
-        <div class="a">You'll still sit the official CAA e-Exams through your flight school (DTO/ATO) as normal. That doesn't change. Aviari is how you make sure you walk in ready to pass them, first time, on a schedule.</div>
+        <div class="a">You'll sit the official CAA/EASA exams through your flight school as normal. That doesn't change. Aviari is how you make sure you walk in ready to pass them, first time, on a schedule.</div>
       </details>
       <details>
         <summary>Is 12 weeks realistic? I have a job.<span class="x">+</span></summary>
-        <div class="a">Twelve weeks is the pace at <b>under an hour a day</b>. It's designed around a job, not around a free summer. Go faster if you have the time; go slower if you need to. The plan restructures around you, and the clock tracker keeps you honest against the CAA's 18-month limit.</div>
+        <div class="a">Twelve weeks is the pace, and it's ambitious by design. This is intensive: <b>you won't get through it without sacrifices</b>, and yes, that means missing a few pints and skipping a few date nights. Getting a pilot licence is not easy. Lock in for twelve weeks and get it done.</div>
       </details>
       <details>
         <summary>I've already passed some exams. Is this still for me?<span class="x">+</span></summary>
-        <div class="a">Yes. The roadmap adapts. Tell it what you've passed and when, and it rebuilds your sequence around what's left, with your existing passes counted against the 18-month window.</div>
+        <div class="a">Yes. Aviari comes as a full package covering all nine subjects, or as individual subjects. Either way you get a 12-week plan you can adapt around what you've already passed.</div>
       </details>
       <details>
         <summary>I've already failed one. Will this help?<span class="x">+</span></summary>
-        <div class="a">That's exactly who this was built for. A failed exam is almost always a booking made on a feeling instead of a score. The readiness score exists so that never happens to you again: you'll retake when the data says you'll pass, not when the nerves say you might.</div>
+        <div class="a">Yes, absolutely. You have four attempts per exam, so one fail is a setback, not the end. The plan rebuilds around your retake, you drill the weak points, and this time you walk in knowing you're ready.</div>
       </details>
       <details>
         <summary>How much will it cost?<span class="x">+</span></summary>
@@ -885,9 +852,9 @@
 <!-- Final CTA -->
 <section class="cta-wl">
   <div class="wrap">
-    <div class="sec-num">05 · Lock it in</div>
+    <div class="sec-num">06 · Lock it in</div>
     <h2>Your pilot licence is closer<br/>than you <span class="accent">think.</span></h2>
-    <p>The CAA and EASA give you 18 months and six sittings. Give yourself a plan.</p>
+    <p>The CAA and EASA give you 18 months for all nine exams. Give yourself a plan.</p>
 
     <form class="wl-form" data-wl>
       <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address"/>
@@ -895,7 +862,7 @@
         Join the waitlist
         <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
       </button>
-      <span class="ok">✓ You're on the list. Check your inbox: your 18-month clock planner is on its way.</span>
+      <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
     </form>
 
     <p class="small">No spam, no daily "content". Revision material worth having, then first access at launch. Unsubscribe any time.</p>
