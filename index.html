@@ -188,7 +188,14 @@
     background: radial-gradient(ellipse 70% 90% at 100% 115%, rgba(232,138,74,0.3), transparent 100%);
     pointer-events: none;
   }
-  .truth .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--flare); text-transform: uppercase; white-space: nowrap; padding-top: 6px; }
+  .truth .tag {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; white-space: nowrap;
+    display: inline-flex; align-items: center; align-self: flex-start;
+    padding: 9px 16px; border-radius: 999px; color: white;
+    background: linear-gradient(135deg, #2a3d52 0%, #4a6b88 40%, #c5a089 80%, #e88a4a 100%);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
   .truth p { margin: 0; font-size: 19px; line-height: 1.55; color: var(--mist); max-width: 760px; position: relative; z-index: 1; }
   .truth p b { color: white; font-weight: 600; }
 
@@ -962,7 +969,7 @@
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
     <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is provided for educational and informational purposes only. Aviari is a revision aid: it is not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. Your theoretical knowledge exams are booked and sat through your flight school in the normal way, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass any exam, or that you will do so within 12 weeks: the plan is a framework, and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes and do not guarantee yours. Nothing on this website is a substitute for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v17</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v18</span>
     </div>
   </div>
 </footer>
