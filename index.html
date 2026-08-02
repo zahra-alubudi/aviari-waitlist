@@ -274,48 +274,15 @@
     background: rgba(26,42,61,0.32);
     border-color: rgba(255,255,255,0.16);
   }
-  .dash-shot { margin-top: 44px; }
+  .dash-shot { margin: 4px 0 40px; }
   .dash-shot .cap {
     font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
     color: rgba(255,255,255,0.75); text-align: center; margin: 0 0 18px;
   }
   .dash-shot img {
-    display: block; width: 100%; max-width: 1080px; margin: 0 auto;
+    display: block; width: 100%; max-width: 880px; margin: 0 auto;
     border-radius: 16px; border: 1px solid rgba(255,255,255,0.25);
     box-shadow: 0 40px 90px -30px rgba(15,26,38,0.55);
-  }
-  /* ALT layout: big central dashboard, aligned pill columns kissing its edges */
-  .orbit { display: grid; grid-template-columns: 0.8fr 2.6fr 0.8fr; gap: 0; align-items: center; margin-top: 8px; }
-  .orbit .ocol { display: flex; flex-direction: column; gap: 24px; }
-  .orbit .get {
-    padding: 20px 22px; position: relative; z-index: 2;
-    background: rgba(26,42,61,0.62); -webkit-backdrop-filter: blur(2.5px); backdrop-filter: blur(2.5px);
-    box-shadow: 0 24px 50px -20px rgba(15,26,38,0.45);
-  }
-  .orbit .ocol.l .get { width: calc(100% + 14px); }
-  .orbit .ocol.r .get { width: calc(100% + 14px); margin-left: -14px; }
-  .orbit .get .gt { font-size: 16.5px; margin-bottom: 6px; }
-  .orbit .get p { font-size: 13px; }
-  .orbit .oimg { position: relative; z-index: 1; }
-  .orbit .oimg img {
-    display: block; width: 100%;
-    border-radius: 16px; border: 1px solid rgba(255,255,255,0.25);
-    box-shadow: 0 40px 90px -30px rgba(15,26,38,0.55);
-  }
-  /* ALT 2: dashboard on top, pills grid covering its lower half */
-  .stack3 .oimg3 img {
-    display: block; width: 100%; max-width: 1080px; margin: 0 auto;
-    border-radius: 16px; border: 1px solid rgba(255,255,255,0.25);
-    box-shadow: 0 40px 90px -30px rgba(15,26,38,0.55);
-  }
-  .stack3 .gets {
-    position: relative; z-index: 2;
-    margin: -24% auto 0; max-width: 1140px;
-  }
-  .stack3 .get {
-    background: rgba(26,42,61,0.62);
-    -webkit-backdrop-filter: blur(2.5px); backdrop-filter: blur(2.5px);
-    box-shadow: 0 24px 50px -20px rgba(15,26,38,0.45);
   }
   .gets { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
   .get {
@@ -588,10 +555,7 @@
   @media (max-width: 980px) {
     .fears { grid-template-columns: 1fr 1fr; }
     .gets { grid-template-columns: 1fr; }
-    .orbit { grid-template-columns: 1fr; }
-    .stack3 .gets { margin-top: 18px; }
-    .orbit .get { transform: none !important; width: 100% !important; margin-left: 0 !important; }
-    .orbit .oimg { order: -1; margin-bottom: 18px; }
+
     .unlocks { grid-template-columns: 1fr 1fr; }
     .ways { grid-template-columns: 1fr; gap: 64px; }
     .hgrid { grid-template-columns: 1fr; }
@@ -925,65 +889,10 @@
         <h2>Here's exactly what you're getting.</h2>
       </div>
     </div>
-    <div class="gets">
-      <div class="get"><span class="gn">01</span><div><h3 class="gt">Revision material for every subject</h3><p>All nine subjects, in one place.</p></div></div>
-      <div class="get"><span class="gn">02</span><div><h3 class="gt">Audio for every subject</h3><p>Listen on the go: the commute, the gym, the airfield.</p></div></div>
-      <div class="get"><span class="gn">03</span><div><h3 class="gt">Flashcards</h3><p>Quick-fire revision that actually sticks.</p></div></div>
-      <div class="get"><span class="gn">04</span><div><h3 class="gt">A framework and a plan</h3><p>Schedule all nine exams across 12 weeks.</p></div></div>
-      <div class="get"><span class="gn">05</span><div><h3 class="gt">A custom-built platform for pilots</h3><p>Built around how you study, not a one-size-fits-all course.</p></div></div>
-      <div class="get"><span class="gn">06</span><div><h3 class="gt">iPad, mobile and desktop</h3><p>Study wherever the day puts you.</p></div></div>
-      <div class="get"><span class="gn">07</span><div><h3 class="gt">Daily prompts on what to tackle next</h3><p>Focus on studying, not planning.</p></div></div>
-      <div class="get"><span class="gn">08</span><div><h3 class="gt">Mock exams for every subject</h3><p>The real exam should feel like a rerun.</p></div></div>
-    </div>
-
     <div class="dash-shot">
-      <p class="cap">Your pre-flight briefing · the Aviari dashboard</p>
       <img src="photos/dashboard.png" alt="The Aviari Ground School dashboard showing all nine subjects in progress and overall readiness at 66%" loading="lazy"/>
     </div>
-  </div>
-</section>
 
-<!-- What you're getting · ALT layout: pills orbit the dashboard -->
-<section class="s s-dark s-sunset">
-  <div class="wrap">
-    <div class="s-head" style="grid-template-columns: 1fr;">
-      <div>
-        <div class="sec-num">05 · What's inside · alt</div>
-        <h2>Here's exactly what you're getting.</h2>
-      </div>
-    </div>
-    <div class="orbit">
-      <div class="ocol l">
-        <div class="get"><span class="gn">01</span><div><h3 class="gt">Revision material for every subject</h3><p>All nine subjects, in one place.</p></div></div>
-        <div class="get"><span class="gn">02</span><div><h3 class="gt">Audio for every subject</h3><p>Listen on the go: the commute, the gym, the airfield.</p></div></div>
-        <div class="get"><span class="gn">03</span><div><h3 class="gt">Flashcards</h3><p>Quick-fire revision that actually sticks.</p></div></div>
-        <div class="get"><span class="gn">04</span><div><h3 class="gt">A framework and a plan</h3><p>Schedule all nine exams across 12 weeks.</p></div></div>
-      </div>
-      <div class="oimg">
-        <img src="photos/dashboard.png" alt="The Aviari Ground School dashboard" loading="lazy"/>
-      </div>
-      <div class="ocol r">
-        <div class="get"><span class="gn">05</span><div><h3 class="gt">A custom-built platform for pilots</h3><p>Built around how you study, not a one-size-fits-all course.</p></div></div>
-        <div class="get"><span class="gn">06</span><div><h3 class="gt">iPad, mobile and desktop</h3><p>Study wherever the day puts you.</p></div></div>
-        <div class="get"><span class="gn">07</span><div><h3 class="gt">Daily prompts on what to tackle next</h3><p>Focus on studying, not planning.</p></div></div>
-        <div class="get"><span class="gn">08</span><div><h3 class="gt">Mock exams for every subject</h3><p>The real exam should feel like a rerun.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- What you're getting · ALT 2: dashboard on top, pills over its lower half -->
-<section class="s s-dark s-sunset stack3">
-  <div class="wrap">
-    <div class="s-head" style="grid-template-columns: 1fr;">
-      <div>
-        <div class="sec-num">05 · What's inside · alt 2</div>
-        <h2>Here's exactly what you're getting.</h2>
-      </div>
-    </div>
-    <div class="oimg3">
-      <img src="photos/dashboard.png" alt="The Aviari Ground School dashboard" loading="lazy"/>
-    </div>
     <div class="gets">
       <div class="get"><span class="gn">01</span><div><h3 class="gt">Revision material for every subject</h3><p>All nine subjects, in one place.</p></div></div>
       <div class="get"><span class="gn">02</span><div><h3 class="gt">Audio for every subject</h3><p>Listen on the go: the commute, the gym, the airfield.</p></div></div>
@@ -1068,7 +977,7 @@
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
     <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is provided for educational and informational purposes only. Aviari is a revision aid: it is not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. Your theoretical knowledge exams are booked and sat through your flight school in the normal way, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass any exam, or that you will do so within 12 weeks: the plan is a framework, and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes and do not guarantee yours. Nothing on this website is a substitute for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v24</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v25</span>
     </div>
   </div>
 </footer>
