@@ -144,6 +144,10 @@
     .nav { display: none; }
     .hero-w .wrap { padding-top: 28px; }
     .hero-video .vtag { display: none; }
+    .cta-wl { padding: 76px 0; }
+    .cta-wl h2 { font-size: 33px; letter-spacing: -0.03em; line-height: 1.08; }
+    .cta-wl h2 br { display: none; }
+    .cta-wl p { font-size: 15px; margin-top: 18px; }
   }
 
   /* ---------------- Clock strip ---------------- */
@@ -521,8 +525,10 @@
     .hgrid { grid-template-columns: 1fr; }
     .faces { grid-template-columns: 1fr 1fr; }
     .week .days { grid-template-columns: repeat(4, 1fr); }
-    .founder { grid-template-columns: 1fr; }
-    .founder .photo { max-width: 420px; }
+    .founder { grid-template-columns: 1fr; gap: 0; }
+    .founder .note { display: contents; }
+    .founder .photo { order: 5; max-width: 420px; margin: 10px 0 26px; }
+    .founder .sig { order: 6; }
     .truth { grid-template-columns: 1fr; padding: 36px 30px; }
     .cal-grid { grid-template-columns: 1fr; }
     /* mobile hero: pill, headline, video, smaller subtext, form */
@@ -906,7 +912,7 @@
 <footer class="foot">
   <div class="wrap">
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v10</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v11</span>
     </div>
   </div>
 </footer>
