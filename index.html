@@ -284,16 +284,16 @@
     border-radius: 16px; border: 1px solid rgba(255,255,255,0.25);
     box-shadow: 0 40px 90px -30px rgba(15,26,38,0.55);
   }
-  /* ALT layout: pills orbiting a big dashboard, overlapping its edges */
-  .orbit { display: grid; grid-template-columns: 0.85fr 2.3fr 0.85fr; gap: 0; align-items: center; margin-top: 8px; }
-  .orbit .ocol { display: flex; flex-direction: column; gap: 26px; }
+  /* ALT layout: big central dashboard, aligned pill columns kissing its edges */
+  .orbit { display: grid; grid-template-columns: 0.8fr 2.6fr 0.8fr; gap: 0; align-items: center; margin-top: 8px; }
+  .orbit .ocol { display: flex; flex-direction: column; gap: 24px; }
   .orbit .get {
     padding: 20px 22px; position: relative; z-index: 2;
-    background: rgba(26,42,61,0.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-    box-shadow: 0 24px 50px -20px rgba(15,26,38,0.5);
+    background: rgba(26,42,61,0.62); -webkit-backdrop-filter: blur(2.5px); backdrop-filter: blur(2.5px);
+    box-shadow: 0 24px 50px -20px rgba(15,26,38,0.45);
   }
-  .orbit .ocol.l .get { width: calc(100% + 96px); }
-  .orbit .ocol.r .get { width: calc(100% + 96px); margin-left: -96px; }
+  .orbit .ocol.l .get { width: calc(100% + 14px); }
+  .orbit .ocol.r .get { width: calc(100% + 14px); margin-left: -14px; }
   .orbit .get .gt { font-size: 16.5px; margin-bottom: 6px; }
   .orbit .get p { font-size: 13px; }
   .orbit .oimg { position: relative; z-index: 1; }
@@ -302,14 +302,6 @@
     border-radius: 16px; border: 1px solid rgba(255,255,255,0.25);
     box-shadow: 0 40px 90px -30px rgba(15,26,38,0.55);
   }
-  .orbit .ocol.l .get:nth-child(1) { transform: translate(14px, -8px); }
-  .orbit .ocol.l .get:nth-child(2) { transform: translate(-16px, 4px); }
-  .orbit .ocol.l .get:nth-child(3) { transform: translate(26px, 10px); }
-  .orbit .ocol.l .get:nth-child(4) { transform: translate(-4px, -4px); }
-  .orbit .ocol.r .get:nth-child(1) { transform: translate(-14px, 6px); }
-  .orbit .ocol.r .get:nth-child(2) { transform: translate(16px, -8px); }
-  .orbit .ocol.r .get:nth-child(3) { transform: translate(-26px, 2px); }
-  .orbit .ocol.r .get:nth-child(4) { transform: translate(4px, 10px); }
   .gets { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
   .get {
     display: flex; gap: 20px; align-items: flex-start;
@@ -1035,7 +1027,7 @@
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
     <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is provided for educational and informational purposes only. Aviari is a revision aid: it is not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. Your theoretical knowledge exams are booked and sat through your flight school in the normal way, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass any exam, or that you will do so within 12 weeks: the plan is a framework, and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes and do not guarantee yours. Nothing on this website is a substitute for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v22</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v23</span>
     </div>
   </div>
 </footer>
