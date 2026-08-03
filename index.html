@@ -1091,6 +1091,24 @@
   const WAITLIST_COUNT = 37;          // <- current signups
 
   // Hero counter: hidden below 25 so early days don't look empty.
+  // Always open at the top: strip stale #join anchors from shared links and
+  // disable scroll restoration so a fresh visit never starts mid-page.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
+  // Pricing CTA scrolls to the signup form without writing #join into the URL.
+  document.querySelectorAll('a[href="#join"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.getElementById('join');
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
   document.querySelectorAll('[data-count]').forEach(el => {
     if (WAITLIST_COUNT >= 25) {
       el.textContent = WAITLIST_COUNT.toLocaleString('en-GB');
