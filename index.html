@@ -1080,19 +1080,12 @@
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
     <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is educational and informational only. Aviari is a revision aid: not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. You book and sit your theoretical knowledge exams through your flight school as normal, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass, or pass within 12 weeks: the plan is a framework and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes. Nothing here substitutes for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v43</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v44</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // ------------------------------------------------------------------
-  // WAITLIST CONFIG: update this number by hand (or wire it to your
-  // email tool's API) as signups come in. It drives the hero counter.
-  // ------------------------------------------------------------------
-  const WAITLIST_COUNT = 0;           // <- real count; update from Resend, or wire the counter endpoint later
-
-  // Hero counter: hidden below 25 so early days don't look empty.
   // Always open at the top: strip stale #join anchors from shared links and
   // disable scroll restoration so a fresh visit never starts mid-page.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -1111,14 +1104,24 @@
     });
   });
 
-  document.querySelectorAll('[data-count]').forEach(el => {
-    if (WAITLIST_COUNT >= 25) {
-      el.textContent = WAITLIST_COUNT.toLocaleString('en-GB');
-    } else {
+  // Live counter: real count from Resend via the platform. Hidden below 25
+  // so early days don't look empty; also hidden if the fetch fails.
+  function renderCount(count) {
+    document.querySelectorAll('[data-count]').forEach(el => {
       const line = el.closest('.count-line');
-      if (line) line.style.display = 'none';
-    }
-  });
+      if (typeof count === 'number' && count >= 25) {
+        el.textContent = count.toLocaleString('en-GB');
+        if (line) line.style.display = '';
+      } else {
+        if (line) line.style.display = 'none';
+      }
+    });
+  }
+  renderCount(null);
+  fetch('https://next.aviari.co/api/waitlist/count')
+    .then(res => res.ok ? res.json() : null)
+    .then(data => { if (data) renderCount(data.count); })
+    .catch(() => {});
 
   // ------------------------------------------------------------------
   // FORM SUBMISSION: currently shows a local success state only.
