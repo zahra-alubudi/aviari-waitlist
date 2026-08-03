@@ -297,6 +297,43 @@
   }
   .get p { margin: 0; color: var(--mist); font-size: 14.5px; line-height: 1.55; }
 
+  /* ---------------- Waitlist pricing ---------------- */
+  .prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .price-card {
+    background: white; border: 1px solid var(--line); border-radius: 18px;
+    padding: 26px 24px 22px; display: flex; flex-direction: column; gap: 4px;
+    position: relative;
+  }
+  .price-card .off {
+    position: absolute; top: -12px; right: 16px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--flare); color: white; padding: 6px 11px; border-radius: 999px;
+    box-shadow: var(--e2);
+  }
+  .price-card h3 { font-size: 21px; letter-spacing: -0.02em; margin: 0; }
+  .price-card .who { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dusty); margin-top: 4px; }
+  .price-card .was {
+    margin-top: 18px; font-family: var(--f-mono); font-size: 12px; color: var(--dusty);
+  }
+  .price-card .was s { text-decoration-color: var(--flare-deep); text-decoration-thickness: 1.5px; }
+  .price-card .now { font-family: var(--f-display); font-weight: 600; font-size: 38px; letter-spacing: -0.03em; color: var(--deep); line-height: 1; margin-top: 4px; }
+  .price-card .now span { font-size: 16px; color: var(--dusty); font-weight: 500; }
+  .price-card .now-l { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--flare-deep); margin-top: 6px; }
+  .price-card .meta {
+    margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line);
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dusty);
+  }
+  .price-card.feat { background: var(--deep); border-color: var(--deep); }
+  .price-card.feat h3, .price-card.feat .now { color: white; }
+  .price-card.feat .who, .price-card.feat .was, .price-card.feat .meta { color: var(--mist); }
+  .price-card.feat .meta { border-top-color: rgba(255,255,255,0.15); }
+  .price-card.feat .now span { color: var(--mist); }
+  .prices-note {
+    margin-top: 22px; text-align: center;
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--dusty); line-height: 1.7;
+  }
+  .prices-cta { display: flex; justify-content: center; margin-top: 26px; }
+
   /* ---------------- FAQ ---------------- */
   .faq-list { max-width: 820px; }
   .faq-list details {
@@ -557,6 +594,7 @@
   @media (max-width: 980px) {
     .fears { grid-template-columns: 1fr 1fr; }
     .gets { grid-template-columns: 1fr; }
+    .prices { grid-template-columns: 1fr 1fr; }
 
     .unlocks { grid-template-columns: 1fr 1fr; }
     .ways { grid-template-columns: 1fr; gap: 64px; }
@@ -587,6 +625,7 @@
     .fears { grid-template-columns: 1fr; }
     .unlocks { grid-template-columns: 1fr; }
     .faces { grid-template-columns: 1fr; }
+    .prices { grid-template-columns: 1fr; }
     .week .days { grid-template-columns: 1fr 1fr; }
     .cal td { height: 40px; padding: 3px 2px; font-size: 7px; }
     .bubble { max-width: 100%; }
@@ -739,12 +778,71 @@
   </div>
 </section>
 
+<!-- Waitlist pricing -->
+<section class="s">
+  <div class="wrap">
+    <div class="s-head" style="grid-template-columns: 1fr;">
+      <div>
+        <div class="sec-num">03 · Pricing</div>
+        <h2>Lock the founder price.</h2>
+        <p class="lead" style="margin-top: 18px;">These are the prices waitlist members pay at launch. When doors open to everyone else, the crossed-out prices apply.</p>
+      </div>
+    </div>
+
+    <div class="prices">
+      <div class="price-card feat">
+        <span class="off">Save £60</span>
+        <h3>PPL bundle</h3>
+        <div class="who">All 9 subjects · 18 months' access</div>
+        <div class="was">Post-launch <s>£199.99</s></div>
+        <div class="now">£139<span>.99</span></div>
+        <div class="now-l">Waitlist price · one-off</div>
+        <div class="meta">Flashcards · drills · mocks</div>
+      </div>
+      <div class="price-card">
+        <span class="off">Save £35</span>
+        <h3>NPPL bundle</h3>
+        <div class="who">5 core subjects · 12 months' access</div>
+        <div class="was">Post-launch <s>£109.99</s></div>
+        <div class="now">£74<span>.99</span></div>
+        <div class="now-l">Waitlist price · one-off</div>
+        <div class="meta">Flashcards · drills · mocks</div>
+      </div>
+      <div class="price-card">
+        <span class="off">Save £30</span>
+        <h3>NPPL to PPL upgrade</h3>
+        <div class="who">4 conversion subjects · 8 months' access</div>
+        <div class="was">Post-launch <s>£89.99</s></div>
+        <div class="now">£59<span>.99</span></div>
+        <div class="now-l">Waitlist price · one-off</div>
+        <div class="meta">Flashcards · drills · mocks</div>
+      </div>
+      <div class="price-card">
+        <span class="off">Save £10</span>
+        <h3>Single subject</h3>
+        <div class="who">Any of the 9 · 2 months' access</div>
+        <div class="was">Post-launch <s>£29.99</s></div>
+        <div class="now">£19<span>.99</span></div>
+        <div class="now-l">Waitlist price · one-off</div>
+        <div class="meta">Per subject</div>
+      </div>
+    </div>
+
+    <p class="prices-note">Waitlist prices are locked at signup and honoured at launch. One-off payments, no subscription.</p>
+    <div class="prices-cta">
+      <a href="#join" class="btn btn-flare btn-lg">Join the waitlist to lock these prices
+        <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- The 12-week plan -->
 <section class="s">
   <div class="wrap">
     <div class="s-head">
       <div>
-        <div class="sec-num">03 · The plan</div>
+        <div class="sec-num">04 · The plan</div>
         <h2 class="h2-oneline">9 exams. 4 sittings. 12 weeks.</h2>
         <p class="lead" style="margin-top: 20px; max-width: 620px;">You are not studying nine subjects. You are studying four sittings: pair them right and one block of revision covers two or three exams at once.</p>
       </div>
@@ -866,7 +964,7 @@
         <img src="photos/founder.jpg" alt="Zahra after passing her skills test, holding the certificate in front of a Cessna"/>
       </div>
       <div class="note">
-        <div class="sec-num">04 · Why this exists</div>
+        <div class="sec-num">05 · Why this exists</div>
         <h2 style="margin: 14px 0 26px;">Why I built this.</h2>
         <p>I didn't build this because revision software is a good business. I built it because I sat exactly where you're sitting: nine exams, textbooks written like legal documents, and no idea what to study first.</p>
         <p>I did my licence around a full-time job, with nobody in my life who'd done it before. That's the part nobody warns you about. Your private pilot licence can be a lonely journey: it's your brain, your exams, your timeline. Nobody is coming to organise it for you.</p>
@@ -887,7 +985,7 @@
   <div class="wrap">
     <div class="s-head" style="grid-template-columns: 1fr;">
       <div>
-        <div class="sec-num">05 · What's inside</div>
+        <div class="sec-num">06 · What's inside</div>
         <h2>Here's exactly what you're getting.</h2>
       </div>
     </div>
@@ -913,7 +1011,7 @@
   <div class="wrap">
     <div class="s-head">
       <div>
-        <div class="sec-num">06 · Questions</div>
+        <div class="sec-num">07 · Questions</div>
         <h2>You asked, we answered.</h2>
       </div>
     </div>
@@ -941,7 +1039,7 @@
       </details>
       <details>
         <summary>How much will it cost?<span class="x">+</span></summary>
-        <div class="a">Pricing is announced at launch. What we can tell you now: waitlist members get <b>founder pricing, locked at signup, kept for as long as you're subscribed</b>. It will never be cheaper than it is for the people on this list.</div>
+        <div class="a">The waitlist prices above are exactly what you'll pay at launch: <b>locked at signup, one-off, no subscription</b>. It will never be cheaper than it is for the people on this list.</div>
       </details>
       <details>
         <summary>UK CAA or EASA?<span class="x">+</span></summary>
@@ -952,9 +1050,9 @@
 </section>
 
 <!-- Final CTA -->
-<section class="cta-wl">
+<section class="cta-wl" id="join">
   <div class="wrap">
-    <div class="sec-num">07 · Lock it in</div>
+    <div class="sec-num">08 · Lock it in</div>
     <h2>Your pilot licence is closer<br/>than you <span class="accent">think.</span></h2>
     <p>The CAA and EASA give you 18 months for all nine exams. Give yourself a plan.</p>
 
@@ -979,7 +1077,7 @@
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
     <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is educational and informational only. Aviari is a revision aid: not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. You book and sit your theoretical knowledge exams through your flight school as normal, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass, or pass within 12 weeks: the plan is a framework and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes. Nothing here substitutes for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v28</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v30</span>
     </div>
   </div>
 </footer>
