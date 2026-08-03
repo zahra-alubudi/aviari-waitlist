@@ -367,6 +367,8 @@
     position: relative; display: flex; flex-direction: column; gap: 17px;
     flex: 1;
   }
+  /* old column: extra air so the floating tags never kiss the bubble above */
+  .way.old .bubbles { gap: 27px; }
   /* the timeline spine that strings the Aviari messages together */
   .way.new .bubbles::before {
     content:''; position: absolute; left: 50%; top: -17px; bottom: -17px; width: 2px;
@@ -977,7 +979,7 @@
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
     <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is provided for educational and informational purposes only. Aviari is a revision aid: it is not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. Your theoretical knowledge exams are booked and sat through your flight school in the normal way, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass any exam, or that you will do so within 12 weeks: the plan is a framework, and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes and do not guarantee yours. Nothing on this website is a substitute for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v25</span>
+      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v26</span>
     </div>
   </div>
 </footer>
