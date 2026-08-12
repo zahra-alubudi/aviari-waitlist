@@ -1118,7 +1118,7 @@
     });
   }
   renderCount(null);
-  fetch('https://next.aviari.co/api/waitlist/count')
+  fetch('https://web--aviari-prod.europe-west4.hosted.app/api/waitlist/count')
     .then(res => res.ok ? res.json() : null)
     .then(data => { if (data) renderCount(data.count); })
     .catch(() => {});
@@ -1130,7 +1130,7 @@
   // endpoint). Keep the success state. It's the reward.
   // ------------------------------------------------------------------
   async function submitWaitlist(data) {
-    const res = await fetch('https://next.aviari.co/api/waitlist', {
+    const res = await fetch('https://web--aviari-prod.europe-west4.hosted.app/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: data.email, website: data.website || '' }),
@@ -1147,15 +1147,17 @@
       const ok = form.querySelector('.ok');
       try {
         await submitWaitlist(data);
-        ok.textContent = "\u2713 You're on the list. Keep an eye on your inbox.";
-        ok.style.color = '';
-        ok.style.display = 'block';
-        form.querySelectorAll('input:not([name=website]), select').forEach(el => el.value = '');
+        // Success is a whole page, not a line of text under the button \u2014 the
+        // navigation itself is the confirmation. Keep the button disabled on
+        // the way out so a second click can't fire a duplicate signup.
+        window.location.assign('confirmed.html');
+        return;
       } catch (err) {
         ok.textContent = 'Something went wrong. Please try again in a minute.';
         ok.style.color = '#d9461f';
         ok.style.display = 'block';
-      } finally {
+        // Only re-enable on failure; on success the button stays dead until
+        // the browser leaves the page.
         btn.disabled = false; btn.style.opacity = 1;
       }
     });
