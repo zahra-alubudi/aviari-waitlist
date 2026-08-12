@@ -64,14 +64,18 @@
 
   .done-w h1 {
     font-family: var(--f-display);
-    font-size: clamp(38px, 7vw, 62px);
-    line-height: 1.02; letter-spacing: -0.035em;
+    /* Capped so "You're on the waitlist." stays on one line inside the 720px
+       column. It still wraps on narrow phones, which is correct — forcing one
+       line there would shrink it to nothing. */
+    font-size: clamp(34px, 5.6vw, 52px);
+    line-height: 1.05; letter-spacing: -0.035em;
     margin: 0 0 20px; color: var(--deep);
+    text-wrap: balance;
     animation: rise 520ms cubic-bezier(.22,.61,.36,1) 120ms both;
   }
   .done-lead {
     font-size: 18px; line-height: 1.55; color: var(--dusty);
-    margin: 0 auto 44px; max-width: 470px;
+    margin: 0 auto 44px; max-width: 540px; text-wrap: balance;
     animation: rise 520ms cubic-bezier(.22,.61,.36,1) 200ms both;
   }
 
@@ -93,17 +97,17 @@
     font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--dusty); margin: 0 0 20px;
   }
-  .done-next ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
-  .done-next li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; }
+  /* Headers only, so the rhythm is tighter than it was with descriptions. */
+  .done-next ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .done-next li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: baseline; }
   .done-next .n {
     font-family: var(--f-mono); font-size: 11px; font-weight: 500;
-    color: var(--flare); padding-top: 3px;
+    color: var(--flare);
   }
   .done-next strong {
-    display: block; font-weight: 600; font-size: 15px;
-    color: var(--ink); margin-bottom: 3px; letter-spacing: -0.01em;
+    display: block; font-weight: 600; font-size: 16px;
+    color: var(--ink); letter-spacing: -0.01em;
   }
-  .done-next span.d { font-size: 14px; line-height: 1.5; color: var(--dusty); }
 
   .done-foot {
     font-size: 13px; color: var(--dusty); line-height: 1.6;
@@ -147,10 +151,10 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5.2 5.2L20 7"/></svg>
     </div>
 
-    <h1>You're on the<br/>waitlist.</h1>
+    <h1>You're on the waitlist.</h1>
 
     <p class="done-lead">
-      Your spot is locked. Nothing else to do — we'll come to you.
+      Your spot is locked. Nothing else to do; we'll come to you.
     </p>
 
     <div class="done-next">
@@ -158,24 +162,15 @@
       <ul>
         <li>
           <span class="n">01</span>
-          <div>
-            <strong>Check your inbox</strong>
-            <span class="d">A confirmation is on its way, subject line &ldquo;Your waitlist spot is locked&rdquo;. If it hasn't landed in a few minutes, look in spam.</span>
-          </div>
+          <div><strong>Check your inbox</strong></div>
         </li>
         <li>
           <span class="n">02</span>
-          <div>
-            <strong>Your founder price is locked</strong>
-            <span class="d">Held at the rate you joined on, even if pricing moves before launch.</span>
-          </div>
+          <div><strong>Your founder price is locked</strong></div>
         </li>
         <li>
           <span class="n">03</span>
-          <div>
-            <strong>You'll hear first when doors open</strong>
-            <span class="d">The waitlist gets access before anyone else.</span>
-          </div>
+          <div><strong>You'll hear first when doors open</strong></div>
         </li>
       </ul>
     </div>
