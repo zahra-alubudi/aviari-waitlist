@@ -4,8 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Aviari Waitlist · All 9 exams in 12 weeks</title>
-<meta name="description" content="Join the Aviari waitlist. Pass all nine UK CAA PPL theory exams in twelve weeks with a structured plan. Founder pricing locked at signup."/>
-<meta name="robots" content="noindex"/><!-- remove this line when you want the page discoverable -->
+<meta name="description" content="Get your PPL theory done in 12 weeks. A week-by-week plan for all nine UK CAA and EASA exams, with flashcards, audio and mock exams built in."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
@@ -171,6 +170,20 @@
     color: var(--mist); display: flex; gap: 28px; flex-wrap: wrap;
   }
   .clock .rule b { color: white; font-family: var(--f-display); font-size: 20px; letter-spacing: -0.01em; display: block; margin-top: 4px; }
+  .clock .rule { align-items: flex-start; gap: 30px; }
+  /* Drawn as SVG, not emoji: Windows renders flag emoji as bare letters. */
+  .clock .reg { display: flex; flex-direction: column; gap: 9px; align-items: flex-start; }
+  .clock .reg b { font-size: 15px; letter-spacing: 0.01em; margin-top: 0; }
+  /* Matched on HEIGHT, not width: the UK flag is 2:1 and the EU 3:2, so equal
+     widths would sit their labels on different baselines. */
+  .clock .flag {
+    width: 58px; height: auto; display: block; border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 2px 8px rgba(0,0,0,0.35);
+  }
+  @media (max-width: 700px) {
+    .clock .rule { gap: 22px; }
+    .clock .flag { width: 48px; }
+  }
 
   /* ---------------- Objections ---------------- */
   .fears { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -710,7 +723,7 @@
         <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
       </form>
 
-      <p class="filter-line"><b>Warning:</b> don't join unless you're ready to start studying for your PPL exams. This waitlist and discounted price is for pilots who want to get started soon.</p>
+      <p class="filter-line"><b>No payment today:</b> joining the waitlist only locks in your discounted price. There is nothing to pay now and no obligation to buy when doors open.</p>
 
       <p class="count-line"><b data-count>–</b><span>pilots already on the list</span></p>
     </div>
@@ -718,15 +731,15 @@
   </div>
 </section>
 
-<!-- The regulator's clock -->
+<!-- Regulator compatibility: the single job of this band is to make the
+     UK CAA / EASA coverage unmissable. -->
 <section class="clock">
   <div class="wrap">
     <div class="row">
-      <p class="msg">Sit your first exam and the CAA/EASA clock starts: <b>all nine passed within 18 months</b>, four attempts per exam, or you start again. Every week without a plan, it's running.</p>
+      <p class="msg"><b>This course is written to the UK CAA and EASA syllabus.</b> Sit your exams in the UK or in Europe.</p>
       <div class="rule">
-        <span>Timeline<b>18 months</b></span>
-        <span>Exams<b>9</b></span>
-        <span>Attempts / exam<b>4</b></span>
+        <span class="reg"><svg class="flag" viewBox="0 0 60 40" preserveAspectRatio="xMidYMid meet" aria-label="United Kingdom" role="img"><clipPath id="ukd"><path d="M30,20 h30 v20 z v20 h-30 z h-30 v-20 z v-20 h30 z"/></clipPath><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" clip-path="url(#ukd)" stroke="#C8102E" stroke-width="5.33"/><path d="M30,0 v40 M0,20 h60" stroke="#fff" stroke-width="13.33"/><path d="M30,0 v40 M0,20 h60" stroke="#C8102E" stroke-width="8"/></svg><b>UK–CAA</b></span>
+        <span class="reg"><svg class="flag" viewBox="0 0 60 40" preserveAspectRatio="xMidYMid meet" aria-label="European Union" role="img"><rect width="60" height="40" fill="#003399"/><path fill="#FFCC00" d="M30.00,7.25L30.46,8.67L31.95,8.67L30.74,9.54L31.20,10.96L30.00,10.08L28.80,10.96L29.26,9.54L28.05,8.67L29.54,8.67Z M35.35,8.68L35.81,10.10L37.30,10.10L36.09,10.98L36.55,12.39L35.35,11.52L34.15,12.39L34.61,10.98L33.40,10.10L34.89,10.10Z M39.27,12.60L39.73,14.02L41.22,14.02L40.01,14.89L40.47,16.31L39.27,15.43L38.06,16.31L38.52,14.89L37.32,14.02L38.81,14.02Z M40.70,17.95L41.16,19.37L42.65,19.37L41.44,20.24L41.90,21.66L40.70,20.78L39.50,21.66L39.96,20.24L38.75,19.37L40.24,19.37Z M39.27,23.30L39.73,24.72L41.22,24.72L40.01,25.59L40.47,27.01L39.27,26.13L38.06,27.01L38.52,25.59L37.32,24.72L38.81,24.72Z M35.35,27.22L35.81,28.63L37.30,28.63L36.09,29.51L36.55,30.92L35.35,30.05L34.15,30.92L34.61,29.51L33.40,28.63L34.89,28.63Z M30.00,28.65L30.46,30.07L31.95,30.07L30.74,30.94L31.20,32.36L30.00,31.48L28.80,32.36L29.26,30.94L28.05,30.07L29.54,30.07Z M24.65,27.22L25.11,28.63L26.60,28.63L25.39,29.51L25.85,30.92L24.65,30.05L23.45,30.92L23.91,29.51L22.70,28.63L24.19,28.63Z M20.73,23.30L21.19,24.72L22.68,24.72L21.48,25.59L21.94,27.01L20.73,26.13L19.53,27.01L19.99,25.59L18.78,24.72L20.27,24.72Z M19.30,17.95L19.76,19.37L21.25,19.37L20.04,20.24L20.50,21.66L19.30,20.78L18.10,21.66L18.56,20.24L17.35,19.37L18.84,19.37Z M20.73,12.60L21.19,14.02L22.68,14.02L21.48,14.89L21.94,16.31L20.73,15.43L19.53,16.31L19.99,14.89L18.78,14.02L20.27,14.02Z M24.65,8.68L25.11,10.10L26.60,10.10L25.39,10.98L25.85,12.39L24.65,11.52L23.45,12.39L23.91,10.98L22.70,10.10L24.19,10.10Z"/></svg><b>EU–EASA</b></span>
       </div>
     </div>
   </div>
@@ -846,7 +859,7 @@
       </div>
     </div>
 
-    <p class="prices-note">Waitlist prices are locked at signup and honoured at launch. One-off payments, no subscription.</p>
+    <p class="prices-note">Joining the waitlist locks in your price. There is no obligation to pay now.</p>
     <div class="prices-cta">
       <a href="#join" class="btn btn-flare btn-lg">Join the waitlist to lock these prices
         <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
@@ -1093,9 +1106,9 @@
 <footer class="foot">
   <div class="wrap">
     <p style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 10px;">Disclaimer</p>
-    <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Aviari Ltd ("Aviari", "we", "us"). All content, including the 12-week plan and the PLOG framework, is educational and informational only. Aviari is a revision aid: not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. You book and sit your theoretical knowledge exams through your flight school as normal, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass, or pass within 12 weeks: the plan is a framework and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes. Nothing here substitutes for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
+    <p style="font-size: 12.5px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 980px; margin: 0 0 28px;">This website is operated by Truffle Consultancy Ltd, trading as Aviari ("Aviari", "we", "us"), a company registered in England and Wales (no. 14556226), registered office: Acumen, 37th Floor, 1 Canada Square, London E14 5DY. All content, including the 12-week plan and the PLOG framework, is educational and informational only. Aviari is a revision aid: not a flight school, not an approved training organisation, and not affiliated with or endorsed by the UK CAA or EASA. You book and sit your theoretical knowledge exams through your flight school as normal, and nothing we provide gives access to real exam content or any unfair advantage. We make no guarantee that you will pass, or pass within 12 weeks: the plan is a framework and results depend on your own study, schedule and circumstances. Our founder's results, and those of other students, are individual outcomes. Nothing here substitutes for professional flight instruction, and Aviari accepts no liability for any loss or damage arising from its use.</p>
     <div class="legal" style="border-top: none; padding-top: 0;">
-      <span>© 2026 Aviari Ltd · UK CAA/EASA aligned · v44</span>
+      <span>© 2026 Truffle Consultancy Ltd, trading as Aviari · Company no. 14556226 · UK CAA/EASA aligned</span>
     </div>
   </div>
 </footer>
