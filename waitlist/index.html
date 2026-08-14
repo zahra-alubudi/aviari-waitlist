@@ -1214,7 +1214,9 @@
         // Success is a whole page, not a line of text under the button \u2014 the
         // navigation itself is the confirmation. Keep the button disabled on
         // the way out so a second click can't fire a duplicate signup.
-        window.location.assign('confirmed.html');
+        // Carry the email across so the survey on the next page can prefill its
+        // hidden field. Without it we can't tie an answer back to a signup.
+        window.location.assign('confirmed.html?email=' + encodeURIComponent(data.email));
         return;
       } catch (err) {
         ok.textContent = 'Something went wrong. Please try again in a minute.';

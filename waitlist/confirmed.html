@@ -94,7 +94,7 @@
     border-radius: 16px;
     padding: 28px 30px;
     margin: 0 0 32px;
-    animation: rise 520ms cubic-bezier(.22,.61,.36,1) 280ms both;
+    animation: rise 520ms cubic-bezier(.22,.61,.36,1) 340ms both;
   }
   .done-next h2 {
     font-family: var(--f-mono); font-weight: 500;
@@ -111,6 +111,38 @@
   .done-next strong {
     display: block; font-weight: 600; font-size: 16px;
     color: var(--ink); letter-spacing: -0.01em;
+  }
+
+  /* The survey. Same card treatment as "what happens next" so it reads as part
+     of the page rather than a bolted-on third-party form. */
+  .done-survey {
+    text-align: left;
+    background: rgba(255,255,255,0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255,255,255,0.9);
+    box-shadow: 0 18px 44px -20px rgba(20,40,60,0.22);
+    border-radius: 16px;
+    padding: 28px 30px 20px;
+    margin: 0 0 32px;
+    animation: rise 520ms cubic-bezier(.22,.61,.36,1) 280ms both;
+  }
+  .done-survey h2 {
+    font-family: var(--f-mono); font-weight: 500;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--dusty); margin: 0 0 10px;
+  }
+  .done-survey p {
+    font-size: 15px; line-height: 1.55; color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .done-survey .survey-sub {
+    font-size: 13px; color: var(--dusty); margin: 0 0 8px;
+  }
+  /* dynamicHeight=1 makes Tally post its height up, so the iframe grows with
+     the form and never gets its own scrollbar. */
+  .done-survey iframe {
+    width: 100%; border: 0; display: block; min-height: 320px;
   }
 
   .done-foot {
@@ -161,6 +193,16 @@
       Your spot is locked. Nothing else to do; we'll come to you.
     </p>
 
+    <div class="done-survey">
+      <h2>While you're here</h2>
+      <p>Six quick questions about where you are with your PPL.</p>
+      <p class="survey-sub">It shapes what we build first. Takes under a minute.</p>
+      <iframe
+        data-tally-src="https://tally.so/embed/ja42VR?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+        loading="lazy"
+        title="A few questions about your PPL"></iframe>
+    </div>
+
     <div class="done-next">
       <h2>What happens next</h2>
       <ul>
@@ -187,6 +229,20 @@
 
   </div>
 </section>
+
+<script src="https://tally.so/widgets/embed.js"></script>
+<script>
+  // Prefill Tally's hidden email field from the ?email= we were sent here with,
+  // so an answer can be tied back to a signup without asking for it twice.
+  (function () {
+    const frame = document.querySelector('.done-survey iframe');
+    const email = new URLSearchParams(location.search).get('email');
+    let src = frame.getAttribute('data-tally-src');
+    if (email) src += '&email=' + encodeURIComponent(email);
+    frame.setAttribute('data-tally-src', src);
+    frame.src = src;
+  })();
+</script>
 
 </body>
 </html>
