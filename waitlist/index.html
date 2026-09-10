@@ -1189,7 +1189,7 @@
     });
   }
   renderCount(null);
-  fetch('https://web--aviari-prod.europe-west4.hosted.app/api/waitlist/count')
+  fetch('https://next.aviari.co/api/waitlist/count')
     .then(res => res.ok ? res.json() : null)
     .then(data => { if (data) renderCount(data.count); })
     .catch(() => {});
@@ -1201,7 +1201,7 @@
   // endpoint). Keep the success state. It's the reward.
   // ------------------------------------------------------------------
   async function submitWaitlist(data) {
-    const res = await fetch('https://web--aviari-prod.europe-west4.hosted.app/api/waitlist', {
+    const res = await fetch('https://next.aviari.co/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: data.email, website: data.website || '' }),
