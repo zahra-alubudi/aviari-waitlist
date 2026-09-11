@@ -655,6 +655,35 @@
     color: var(--flare); font-weight: 600; margin-right: 8px;
   }
 
+  /* ---------------- Waitlist closed ---------------- */
+  /* Stands where the signup form stood. Light card in the hero; the final
+     CTA re-skins it dark via the .cta-wl overrides below. */
+  .wl-closed {
+    margin-top: 38px; max-width: 560px;
+    background: white; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 30px; box-shadow: var(--e2);
+  }
+  .wl-closed .cl-tag {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--flare-deep); display: flex; align-items: center; gap: 10px;
+  }
+  .wl-closed .cl-tag::before { content:''; width: 22px; height: 1px; background: var(--flare); }
+  .wl-closed h3 {
+    font-family: var(--f-display); font-size: 24px; font-weight: 600;
+    letter-spacing: -0.02em; margin: 12px 0 0; color: var(--deep);
+  }
+  .wl-closed p { margin: 10px 0 0; color: var(--dusty); font-size: 15px; line-height: 1.6; }
+  .wl-closed .btn { margin-top: 22px; }
+  .cta-wl .wl-closed {
+    margin: 40px auto 0; text-align: center;
+    background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: none;
+  }
+  .cta-wl .wl-closed .cl-tag { justify-content: center; color: var(--flare); }
+  .cta-wl .wl-closed .cl-tag::before { display: none; }
+  .cta-wl .wl-closed h3 { color: white; }
+  .cta-wl .wl-closed p { color: var(--mist); }
+
   .sec-num { display: flex; align-items: center; gap: 10px; }
 
   @media (max-width: 980px) {
@@ -737,7 +766,7 @@
 <section class="hero-w">
   <div class="wrap">
 
-    <div class="crumb crumb-m"><i></i>Waitlist is now open</div>
+    <div class="crumb crumb-m"><i></i>Waitlist closed · We're live</div>
 
     <!-- EDIT ME: drop your video file into the site folder (e.g. videos/hero.mp4)
          and update the <source> below. The poster image shows until it loads. -->
@@ -749,26 +778,23 @@
     </div>
 
     <div class="hero-copy">
-      <div class="crumb"><i></i>Waitlist is now open</div>
+      <div class="crumb"><i></i>Waitlist closed · We're live</div>
       <h1>
         All 9 exams.<br/>
         <span class="accent">12 weeks.</span>
       </h1>
       <p class="sub">The structured revision plan that takes you from first login to your final PPL theory pass in 12 weeks. We help you with what, how and when to study, so you can focus on learning.</p>
 
-      <form class="wl-form" data-wl>
-        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;" aria-hidden="true"/>
-      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address"/>
-        <button type="submit" class="btn btn-flare btn-lg">
-          Join the waitlist
+      <div class="wl-closed">
+        <span class="cl-tag">Launch day</span>
+        <h3>The waitlist has closed.</h3>
+        <p>Doors open today at 10:00 UK time. If you're on the list, your discount code is already in your inbox.</p>
+        <a href="https://www.aviari.co" class="btn btn-flare btn-lg">Go to Aviari
           <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
-        </button>
-        <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
-      </form>
+        </a>
+      </div>
 
-      <p class="filter-line"><b>No payment today:</b> joining the waitlist only locks in your discounted price. There is nothing to pay now and no obligation to buy when doors open.</p>
-
-      <p class="count-line"><b data-count>–</b><span>pilots already on the list</span></p>
+      <p class="count-line"><b data-count>–</b><span>pilots joined the waitlist</span></p>
     </div>
 
   </div>
@@ -902,9 +928,9 @@
       </div>
     </div>
 
-    <p class="prices-note">Joining the waitlist locks in your price. There is no obligation to pay now.</p>
+    <p class="prices-note">These prices were locked for waitlist members. The waitlist has now closed.</p>
     <div class="prices-cta">
-      <a href="#join" class="btn btn-flare btn-lg">Join the waitlist to lock these prices
+      <a href="https://www.aviari.co" class="btn btn-flare btn-lg">Aviari is live · start today
         <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
       </a>
     </div>
@@ -1129,19 +1155,16 @@
     <h2>Your pilot licence is closer<br/>than you <span class="accent">think.</span></h2>
     <p>The CAA and EASA give you 18 months for all nine exams. Give yourself a plan.</p>
 
-    <form class="wl-form" data-wl>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;" aria-hidden="true"/>
-      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address"/>
-      <button type="submit" class="btn btn-flare btn-lg">
-        Join the waitlist
+    <div class="wl-closed">
+      <span class="cl-tag">Launch day</span>
+      <h3>The waitlist has closed.</h3>
+      <p>Doors open today at 10:00 UK time. If you're on the list, your discount code is already in your inbox.</p>
+      <a href="https://www.aviari.co" class="btn btn-flare btn-lg">Go to Aviari
         <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
-      </button>
-      <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
-    </form>
+      </a>
+    </div>
 
-    <p class="count-line"><b data-count>–</b><span>pilots already on the list</span></p>
-
-    <p class="small">No spam, no daily "content". Revision material worth having, then first access at launch. Unsubscribe any time.</p>
+    <p class="count-line"><b data-count>–</b><span>pilots joined the waitlist</span></p>
   </div>
 </section>
 
