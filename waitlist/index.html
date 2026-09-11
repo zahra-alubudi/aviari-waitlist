@@ -656,6 +656,11 @@
   }
 
   /* ---------------- Waitlist closed ---------------- */
+  /* Both the open and the closed state ship in this page; script at the
+     bottom flips [data-open-only]/[data-closed-only] at the cutoff time.
+     The !important is required: .wl-form is display:flex, which would
+     otherwise beat the hidden attribute. */
+  [hidden] { display: none !important; }
   /* Stands where the signup form stood. Light card in the hero; the final
      CTA re-skins it dark via the .cta-wl overrides below. */
   .wl-closed {
@@ -766,7 +771,7 @@
 <section class="hero-w">
   <div class="wrap">
 
-    <div class="crumb crumb-m"><i></i>Waitlist closed · We're live</div>
+    <div class="crumb crumb-m"><i></i><span data-open-only>Waitlist is now open</span><span data-closed-only hidden>Waitlist closed · We're live</span></div>
 
     <!-- EDIT ME: drop your video file into the site folder (e.g. videos/hero.mp4)
          and update the <source> below. The poster image shows until it loads. -->
@@ -778,14 +783,26 @@
     </div>
 
     <div class="hero-copy">
-      <div class="crumb"><i></i>Waitlist closed · We're live</div>
+      <div class="crumb"><i></i><span data-open-only>Waitlist is now open</span><span data-closed-only hidden>Waitlist closed · We're live</span></div>
       <h1>
         All 9 exams.<br/>
         <span class="accent">12 weeks.</span>
       </h1>
       <p class="sub">The structured revision plan that takes you from first login to your final PPL theory pass in 12 weeks. We help you with what, how and when to study, so you can focus on learning.</p>
 
-      <div class="wl-closed">
+      <form class="wl-form" data-wl data-open-only>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;" aria-hidden="true"/>
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address"/>
+        <button type="submit" class="btn btn-flare btn-lg">
+          Join the waitlist
+          <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+        </button>
+        <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
+      </form>
+
+      <p class="filter-line" data-open-only><b>No payment today:</b> joining the waitlist only locks in your discounted price. There is nothing to pay now and no obligation to buy when doors open.</p>
+
+      <div class="wl-closed" data-closed-only hidden>
         <span class="cl-tag">Launch day</span>
         <h3>The waitlist has closed.</h3>
         <p>Doors open today at 10:00 UK time. If you're on the list, your discount code is already in your inbox.</p>
@@ -794,7 +811,7 @@
         </a>
       </div>
 
-      <p class="count-line"><b data-count>–</b><span>pilots joined the waitlist</span></p>
+      <p class="count-line"><b data-count>–</b><span data-open-only>pilots already on the list</span><span data-closed-only hidden>pilots joined the waitlist</span></p>
     </div>
 
   </div>
@@ -928,9 +945,13 @@
       </div>
     </div>
 
-    <p class="prices-note">These prices were locked for waitlist members. The waitlist has now closed.</p>
+    <p class="prices-note" data-open-only>Joining the waitlist locks in your price. There is no obligation to pay now.</p>
+    <p class="prices-note" data-closed-only hidden>These prices were locked for waitlist members. The waitlist has now closed.</p>
     <div class="prices-cta">
-      <a href="https://www.aviari.co" class="btn btn-flare btn-lg">Aviari is live · start today
+      <a href="#join" class="btn btn-flare btn-lg" data-open-only>Join the waitlist to lock these prices
+        <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </a>
+      <a href="https://www.aviari.co" class="btn btn-flare btn-lg" data-closed-only hidden>Aviari is live · start today
         <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
       </a>
     </div>
@@ -1155,7 +1176,17 @@
     <h2>Your pilot licence is closer<br/>than you <span class="accent">think.</span></h2>
     <p>The CAA and EASA give you 18 months for all nine exams. Give yourself a plan.</p>
 
-    <div class="wl-closed">
+    <form class="wl-form" data-wl data-open-only>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;" aria-hidden="true"/>
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address"/>
+      <button type="submit" class="btn btn-flare btn-lg">
+        Join the waitlist
+        <span class="arr"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" stroke="var(--flare)" stroke-width="2.5" stroke-linecap="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
+      </button>
+      <span class="ok">✓ You're on the list. Keep an eye on your inbox.</span>
+    </form>
+
+    <div class="wl-closed" data-closed-only hidden>
       <span class="cl-tag">Launch day</span>
       <h3>The waitlist has closed.</h3>
       <p>Doors open today at 10:00 UK time. If you're on the list, your discount code is already in your inbox.</p>
@@ -1164,7 +1195,9 @@
       </a>
     </div>
 
-    <p class="count-line"><b data-count>–</b><span>pilots joined the waitlist</span></p>
+    <p class="count-line"><b data-count>–</b><span data-open-only>pilots already on the list</span><span data-closed-only hidden>pilots joined the waitlist</span></p>
+
+    <p class="small" data-open-only>No spam, no daily "content". Revision material worth having, then first access at launch. Unsubscribe any time.</p>
   </div>
 </section>
 
@@ -1188,6 +1221,31 @@
     window.scrollTo(0, 0);
   }
   window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
+  // ------------------------------------------------------------------
+  // TIMED CLOSE: the open and closed states both ship in this page and
+  // this flips between them at 09:59 UK time on launch day (11 Sep 2026
+  // is BST, so 08:59Z). Client-side on purpose: a GitHub Pages push
+  // takes minutes to build and up to ten more to fall out of the CDN
+  // cache, so a deploy cannot land on the minute — but every copy of
+  // this page, cached or not, flips itself the moment the visitor's
+  // clock passes the cutoff. Preview with ?state=open / ?state=closed.
+  // ------------------------------------------------------------------
+  const CLOSE_AT = Date.parse('2026-09-11T08:59:00Z');
+  const FORCED_STATE = new URLSearchParams(location.search).get('state');
+  function waitlistClosed() {
+    if (FORCED_STATE === 'open') return false;
+    if (FORCED_STATE === 'closed') return true;
+    return Date.now() >= CLOSE_AT;
+  }
+  function applyWaitlistState() {
+    const closed = waitlistClosed();
+    document.querySelectorAll('[data-open-only]').forEach(el => { el.hidden = closed; });
+    document.querySelectorAll('[data-closed-only]').forEach(el => { el.hidden = !closed; });
+  }
+  applyWaitlistState();
+  // A tab someone left open across the cutoff flips too.
+  setInterval(applyWaitlistState, 15000);
 
   // Pricing CTA scrolls to the signup form without writing #join into the URL.
   document.querySelectorAll('a[href="#join"]').forEach(a => {
@@ -1235,6 +1293,9 @@
   document.querySelectorAll('[data-wl]').forEach(form => {
     form.addEventListener('submit', async e => {
       e.preventDefault();
+      // Belt and braces: a submit that races the cutoff swaps to the
+      // closed card instead of joining a list that has closed.
+      if (waitlistClosed()) { applyWaitlistState(); return; }
       const data = Object.fromEntries(new FormData(form).entries());
       const btn = form.querySelector('button');
       btn.disabled = true; btn.style.opacity = 0.6;
